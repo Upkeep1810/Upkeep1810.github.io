@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anthony Miller | Personal Website</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+      --max-width: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 35%, #ffffff 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 72px 0 40px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: #e8f0ff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .profile-box {
+      background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+      border: 1px solid #dbe7ff;
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .profile-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #93c5fd, #2563eb);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .profile-box h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .profile-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    section {
+      padding: 26px 0;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 34px;
+    }
+
+    .section-header {
+      margin-bottom: 22px;
+    }
+
+    .section-header h2 {
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .info-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      background: #fcfdff;
+    }
+
+    .info-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      color: var(--accent-dark);
+    }
+
+    .info-card p,
+    .info-card li {
+      color: var(--muted);
+    }
+
+    .info-card ul {
+      padding-left: 18px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      border-left: 4px solid var(--accent);
+      padding: 6px 0 6px 18px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .meta {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    .cv-frame-wrap {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+
+    .cv-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      background: white;
+      flex-wrap: wrap;
+    }
+
+    .cv-toolbar p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 760px;
+      border: none;
+      background: white;
+    }
+
+    footer {
+      padding: 30px 0 50px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-card,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 30px;
+      }
+
+      iframe {
+        height: 560px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav {
+        gap: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .section-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand">Zhuoyuan Xu</a>
+      <nav class="nav-links">
+        <a href="#background">Background</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div>
+            <span class="eyebrow">Personal Website</span>
+            <h1>Hello, I'm Zhuoyuan Xu.</h1>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#cv">View CV</a>
+              <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="background">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header">
+            <h2>Background</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="meta">Education</div>
+              <h3>Your Degree or Field of Study</h3>
+              <p>Fourth year in Shanghai Jiao Tong University, Computer Science(Zhiyuan Honour Program).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header">
+            <h2>Curriculum Vitae</h2>
+          </div>
+
+          <div class="cv-frame-wrap">
+            <div class="cv-toolbar">
+              <a class="btn btn-primary" href="Resume_Zhuoyuan_Xu.pdf" target="_blank" rel="noopener noreferrer">Open CV PDF</a>
+            </div>
+            <iframe src="Resume_Zhuoyuan_Xu.pdf" title="Zhuoyuan Xu CV PDF"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header">
+            <h2>Contact</h2>
+          </div>
+          <div class="grid-2">
+            <div class="info-card">
+              <h3>Email</h3>
+              <p><a href="andyxuzy@sjtu.edu.cn">andyxuzy@sjtu.edu.cn</a></p>
+            </div>
+            <!-- <div class="info-card">
+              <h3>Social / Portfolio</h3>
+              <p>Add your LinkedIn, GitHub, portfolio, or other links here.</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Zhuoyuan Xu. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
